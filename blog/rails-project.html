@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<!--
+	Telephasic by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Annie Bourke</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+
+						<!-- Logo -->
+							<h1 id="logo"><a href="/index.html">Annie Bourke</a></h1>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a href="/about.html">About</a></li>
+									<li><a href="#">Resume</a></li>
+									<li class="break"><a href="/projects/projects-index.html">Projects</a></li>
+									<li><a href="blog-index.html">Blog</a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div class="wrapper">
+					<div class="container" id="main">
+
+						<!-- Content -->
+							<article id="content">
+								<header>
+									<h2>Rails Project Reflection</h2>
+									<p>A movie rental platform built with Rails</p>
+								</header>
+								<img src="/images/pic06.jpg" alt="" />
+								<p>The Movie Rental web application allows customers to log in to the platform and select a movie to “rent”.
+								They can sign up for a new account or log in with Facebook. Once logged in, the customer can view a list
+								of movies, see further details about a given movie, and rent it. Once the movie is rented, it appears on
+								the “My Rentals” page and, from there, the customer can choose to return it. After the customer returns
+								the movie, they can add a famous quote to it for all the other customers to see. The web app will only
+								allow a customer to rent a movie if they are old enough to watch it (based on the MPAA rating system).</p>
+
+								<p>The Rails Portfolio Project has been a nice opportunity to put some new tools to use. It’s gratifying to
+								be able to connect relational databases with user logins and display all of that through a few different
+								page views. As with anything, the individual components only reach their full potential when used in
+								concert with others.</p>
+
+								<p>One of the biggest challenges with this project was organizing all of my code in a way that made sense.
+								With controllers for the application, sessions, customers, rentals, movies, and famous quotes, the
+								filetree started bulking up pretty quickly. I used four models in this project, which isn’t really a
+								lot, but it set the stage for a number of different views. Using MVC architecture for separation of
+								concerns and standard naming conventions for files helped.</p>
+
+								<p>Using a CustomersHelper module allowed me to abstract out a method called check_for_age, which helped
+								reduce the amount of code logic I needed on my Customer show page. Similarly, adding a few helper
+								methods in my Movie and Rental models cut down on the amount of logic and repetitious code in the
+								controllers and views.</p>
+
+								<p>The web app’s login page features the standard input fields to sign in and an option to sign in with
+								Facebook instead. I used Omniauth for login authentication and the Facebook Omniauth gem. It was
+								interesting to incorporate 3rd party login because it required a bit more logic in the Session Controller
+								create method (shown below). I used an if statement to check to see whether the customer logged in with
+								Facebook or by typing in their own credentials. Authenticating the login params for a normal login is
+								pretty straightforward, but the Facebook login was a little different. I was able to iterate through
+								the auth params that the Omniauth Facebook gem made available and select ['info']['email'] to find
+								(or create) the correct customer to login. For both types of logins, each respective code block ends
+								by setting the session customer_id to the new instance of @customer.id .</p>
+
+								<pre><code>
+								  def create
+								    if request.env['omniauth.auth']
+								      @customer = Customer.find_or_create_by(email: auth['info']['email']) do |c|
+								        c.name = auth['info']['name']
+								        c.email = auth['info']['email']
+								        c.password = "0"
+								      end
+
+								      @customer.save
+								      session[:customer_id] = @customer.id
+								      redirect_to '/'
+								    else
+								      @customer = Customer.find_by(email: params[:customer][:email])
+
+								      if @customer && @customer.authenticate(params[:customer][:password])
+								        session[:customer_id] = @customer.id
+								        redirect_to customer_path(@customer)
+								      else
+								        redirect_to '/login'
+								      end
+								    end
+								  end
+								</code></pre>
+
+								<p>My favorite piece of this project was the join table (Rentals) connecting Customers and Movies.
+									Other than facilitating the many-to-many relationiship for Customers/Movies, it’s most important features was its status attribute. It allowed me to set the status to either “checked out” or “returned” depending on what action the custsomer had taken. I created a method rent_movie in the Rental class to check out a movie and made a return button on the My Rentals page for each movie a customer had rented. I made a few other methods in the Rental class- two that use ActiveRecord to scope a list of checked out movies or past movie rentals, and one that verifies that
+									a customer is old enough to watch a certain movie (according to the MPAA rating).</p>
+
+							</article>
+					</div>
+				</div>
+
+			<!-- Footer -->
+			<div id="footer-wrapper">
+				<div id="footer" class="container">
+					<header class="major">
+						<h2>Say Hello</h2>
+						<p>Are you looking for a web developer to join your team? </br> I'd love know to know more.</p>
+					</header>
+					<div class="row">
+						<section class="col-6 col-12-narrower">
+							<form method="post" action="#">
+								<div class="row gtr-50">
+									<div class="col-6 col-12-mobile">
+										<input name="name" placeholder="Name" type="text" />
+									</div>
+									<div class="col-6 col-12-mobile">
+										<input name="email" placeholder="Email" type="text" />
+									</div>
+									<div class="col-12">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+									<div class="col-12">
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" /></li>
+											<li><input type="reset" value="Clear form" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</section>
+						<section class="col-6 col-12-narrower">
+							<div class="row gtr-0">
+								<ul class="divided icons col-6 col-12-mobile">
+								 </br>
+								</ul>
+								<ul class="divided icons col-6 col-12-mobile">
+									<li class="icon brands fa-github"><a href="https://github.com/abourke09">GitHub</a></li>
+									<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/anniebourke/">LinkedIn</a></li>
+								</ul>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div id="copyright" class="container">
+					<ul class="menu">
+						<li>&copy; Annie Bourke. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</div>
+
+	</div>
+
+		<!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+
+	</body>
+</html>
