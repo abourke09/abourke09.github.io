@@ -70,22 +70,19 @@
 
 								<p>Each of the functions below serves as an example of a different runtime. </p>
 
-								<p>
-									For a function of O(1), the runtime is constant and does not depend on the input at all.
-									<code>
-										input = ["cat", "dog", "horse"]
+								<p>For a function of O(1), the runtime is constant and does not depend on the input at all.
+								<code>
+									input = ["cat", "dog", "horse"]
 
-										def my_function(input)
-											puts "Hello #{input[1]}"
-										end
+									def my_function(input)
+										puts "Hello #{input[1]}"
+									end
 
-										#Output:
-										#Hello cat
-									</code>
-								</p>
+									#Output:
+									#Hello cat
+								</code>
 
-								<p>
-									For a function of O(n), the runtime is linear and only runs through the input data once.
+								<p>For a function of O(n), the runtime is linear and only runs through the input data once.</p>
 									<code>
 										input = ["cat", "dog", "horse"]
 
@@ -100,33 +97,31 @@
 										#Hello dog
 										#Hello horse
 									</code>
-								</p>
 
-								<p>
-									For a function of O(n^2), the runtime is squared and tends to involve nested loops.
-									<code>
-										input = ["cat", "dog", "horse"]
 
-										def my_function(input)
-										  input.each do |first|
-										    input.each do |second|
-										      puts "Hello #{first}, said the #{second}."
-										    end
-										  end
-										end
+								<p>For a function of O(n^2), the runtime is squared and tends to involve nested loops.</p>
+								<code>
+									input = ["cat", "dog", "horse"]
 
-										#Output:
-										#Hello cat, said the cat.
-										#Hello cat, said the dog.
-										#Hello cat, said the horse.
-										#Hello dog, said the cat.
-										#Hello dog, said the dog.
-										#Hello dog, said the horse.
-										#Hello horse, said the cat.
-										#Hello horse, said the dog.
-										#Hello horse, said the horse.
-									</code>
-								</p>
+									def my_function(input)
+									  input.each do |first|
+									    input.each do |second|
+									      puts "Hello #{first}, said the #{second}."
+									    end
+									  end
+									end
+
+									#Output:
+									#Hello cat, said the cat.
+									#Hello cat, said the dog.
+									#Hello cat, said the horse.
+									#Hello dog, said the cat.
+									#Hello dog, said the dog.
+									#Hello dog, said the horse.
+									#Hello horse, said the cat.
+									#Hello horse, said the dog.
+									#Hello horse, said the horse.
+								</code>
 
 							</article>
 					</div>
