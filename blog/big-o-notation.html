@@ -45,27 +45,89 @@
 									<p>Understanding and improving upon your code's efficiency</p>
 								</header>
 								<img src="/images/djim-loic2.jpg" alt="" />
-								<p>Computer scientists use Big O notation to describe how efficient their code is. And by efficiency,
-									I mean runtime. In truth, it’s more complicated than that, but that’s the core concept. It’s important
-									to us as software engineers and web developers because knowing how to measure code’s efficiency is
-									the first step to improving it. Obviously, the less efficient the code is and the longer the runtime,
-									the longer the delay is for the user.</p>
+								<p>Computer scientists use Big O notation to describe how efficient
+								their code is. Time efficiency and space efficiency are both a part of
+								this, although it's more common to focus on the former (runtime). It is
+								of course more complicated than that, but that’s the core concept. Big O
+								notation is	important to us as software engineers and web developers because
+								knowing how to measure code’s efficiency is the first step to improving
+								it. Obviously, the less efficient the code is and the longer the
+								runtime, the longer the delay is for the user.</p>
 
-								<p>It’s also pretty common for big o notation to be brought up in an interview setting. Even if you’ve
-									written a function that works perfectly, your interviewer may ask you to make an adjustment to improve
-									upon its runtime. Knowing how to measure, communicate about, and improve your function’s efficiency
-									is important.</p>
+								<p>It’s also pretty common for Big O notation to be brought up in an
+								interview setting. Even if you’ve written a function that works
+								perfectly, your interviewer may ask you to make an adjustment to improve
+								upon its runtime. Knowing how to measure, communicate about, and
+								improve your function’s efficiency is important.</p>
 
-								<p>So what’s the best possible runtime and what’s the worst? And how can we talk about it in the context
-									of Big O? The graphic below does a great job of ranking runtimes according to emojis. It was created
-									by Starr Horne for Honeybadger and is available
-									<a href="https://www.honeybadger.io/blog/a-rubyist-s-guide-to-big-o-notation/">here</a>.</p>
+								<p>So what’s the best possible runtime and what’s the worst? And how can
+								we talk about it in the context of Big O? The graphic below does a
+								great job of ranking runtimes according to emojis. It was created by
+								Starr Horne for Honeybadger and is available <a
+								href="https://www.honeybadger.io/blog/a-rubyist-s-guide-to-big-o-notation/">here</a>.</p>
 
-								<img src="/images/big-o-chart.png" alt="Big O Chart from Starr Horne">
+								<img src="/images/big-o-chart.jpg" alt="Big O Chart by Starr Horne">
 
-							<!--	<p>As Gayle Laakmann describes in her book, Cracking the Coding Interview (McDowell, 2015, ),
-									Big O Notation is “”</p>
-								-->
+								<p>Each of the functions below serves as an example of a different runtime. </p>
+
+								<p>
+									For a function of O(1), the runtime is constant and does not depend on the input at all.
+									<code>
+										input = ["cat", "dog", "horse"]
+
+										def my_function(input)
+											puts "Hello #{input[1]}"
+										end
+
+										#Output:
+										#Hello cat
+									</code>
+								</p>
+
+								<p>
+									For a function of O(n), the runtime is linear and only runs through the input data once.
+									<code>
+										input = ["cat", "dog", "horse"]
+
+										def my_function(input)
+											input.each do |i|
+												puts "Hello #{i}"
+											end
+										end
+
+										#Output:
+										#Hello cat
+										#Hello dog
+										#Hello horse
+									</code>
+								</p>
+
+								<p>
+									For a function of O(n^2), the runtime is squared and tends to involve nested loops.
+									<code>
+										input = ["cat", "dog", "horse"]
+
+										def my_function(input)
+										  input.each do |first|
+										    input.each do |second|
+										      puts "Hello #{first}, said the #{second}."
+										    end
+										  end
+										end
+
+										#Output:
+										#Hello cat, said the cat.
+										#Hello cat, said the dog.
+										#Hello cat, said the horse.
+										#Hello dog, said the cat.
+										#Hello dog, said the dog.
+										#Hello dog, said the horse.
+										#Hello horse, said the cat.
+										#Hello horse, said the dog.
+										#Hello horse, said the horse.
+									</code>
+								</p>
+
 							</article>
 					</div>
 				</div>
