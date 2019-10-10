@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<!--
+	Telephasic by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Annie Bourke</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+
+						<!-- Logo -->
+							<h1 id="logo"><a href="/index.html">Annie Bourke</a></h1>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a href="/about.html">About</a></li>
+									<li><a href="/resume.pdf" target="_blank">Resume</a></li>
+									<li class="break"><a href="/projects/projects-index.html">Projects</a></li>
+									<li><a href="blog-index.html">Blog</a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div class="wrapper">
+					<div class="container" id="main">
+
+						<!-- Content -->
+						<!-- The Image at the top of each blog post has a resolution of 1040 x 368 px -->
+							<article id="content">
+								<header>
+									<h2>Arrays & Hashes</h2>
+									<p>From the basics to differences in compute time</p>
+								</header>
+								<img src="/images/erol-ahmed2.jpg" alt="" />
+								<p>Arrays and hashes are both fundamentally important because they help
+								us control, keep track of, and access great big bundles of data. The
+								Ruby Docs tell us that an <a
+								href=”https://ruby-doc.org/core-2.6.5/Array.html”>array</a> is “an
+								ordered, integer-indexed collection of any object.” On the other hand, a
+								<a href=”https://ruby-doc.org/core-2.6.5/Hash.html”>hash</a> “is a
+								dictionary-like collection of unique keys and their values.” So, they’re
+								quite similar. The main difference boils down to this- you can use any
+								object as an index of a hash, but an array is automatically indexed with
+								integers.</p>
+
+								<p>Given the array below, you could access "pizza" if you knew it's
+								index value. With the hash, you could access the "pizza"s value without
+								knowing precisely where it is in the hash. As a bonus, it would give you
+								even further information about that pizza.</p>
+
+								<code>
+								junk_food_array = [“popcorn”, “pizza”, “cake”]
+								junk_food_array[1]
+								#Output:
+								#pizza
+
+								junk_food_hash = { popcorn: “snack”, pizza: “dinner”, cake: ““dessert””}
+								junk_food_hash[:pizza]
+								#Output:
+								#dessert
+								</code>
+
+								<p>Of course, both hashes and arrays have unique qualities that make them a
+								better or worse choice in any given situation. However, it was only
+								recently that I started to consider the cost in compute time when using
+								an array instead of a hash.</p>
+
+								<p>If we recall from my last blog post about Big O Notation, the best
+								possible  	runtime is O(1) or constant time. That means the compute time
+								will be the same  	no matter what the input size is. Amazingly, the
+								lookup time for a hash is O(1).  	The lookup time for an array (using
+								.find) is O(n), which is still fine, but not  	as good.</p>
+
+								<p>Let's consider the junk food example above one more time. What if someone
+								else had all the data about junk food, and there were thousand and thousands
+								of junk food entries recorded. Our job might be to check this list to see if
+								a certian food item is considered junk food. In this case, there would be no
+								way to know the index value of certain food item, we wouldn't even be sure if
+								it was there at all. We would have to use the .find enumerable.</p>
+
+								<code>
+								junk_food_array.find {|i| i == "pizza"}
+								#Output:
+								#pizza
+								<code>
+
+								<p>The .find enumerable has to go through each item in the array before it
+								reaches the end or comes across a matching "pizza" entry. Meanwhile, because
+								of the way hash tables are built on the backend, junk_food_hash[:pizza] just
+								plucks the pizza key's value of "dinner" right out. There's no need to sort
+								through each key/value pair, and that's kind of the point of hashes.</p>
+
+								</p>
+								<p>For more information about how hashes store information on the
+								backend so efficiently,  	Gayle Laakmann McDowell gives a great
+								description on HackerRank's YouTube channel: <a  	href =
+								"https://www.youtube.com/watch?v=shs0KM3wKv8">Data Structures: Hash
+								Tables</a>.</p>
+
+							</article>
+					</div>
+				</div>
+
+			<!-- Footer -->
+			<div id="footer-wrapper">
+				<div id="footer" class="container">
+					<header class="major">
+						<h2>Say Hello</h2>
+						<p>Are you looking for a web developer to join your team? </br> I'd love know to know more.</p>
+					</header>
+					<div class="row">
+						<section class="col-6 col-12-narrower">
+							<form method="post" action="#">
+								<div class="row gtr-50">
+									<div class="col-6 col-12-mobile">
+										<input name="name" placeholder="Name" type="text" />
+									</div>
+									<div class="col-6 col-12-mobile">
+										<input name="email" placeholder="Email" type="text" />
+									</div>
+									<div class="col-12">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+									<div class="col-12">
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" /></li>
+											<li><input type="reset" value="Clear form" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</section>
+						<section class="col-6 col-12-narrower">
+							<div class="row gtr-0">
+								<ul class="divided icons col-6 col-12-mobile">
+								 </br>
+								</ul>
+								<ul class="divided icons col-6 col-12-mobile">
+									<li class="icon brands fa-github"><a href="https://github.com/abourke09" target="_blank">GitHub</a></li>
+									<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/anniebourke/" target="_blank">LinkedIn</a></li>
+								</ul>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div id="copyright" class="container">
+					<ul class="menu">
+						<li>&copy; Annie Bourke. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</div>
+
+	</div>
+
+		<!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+
+	</body>
+</html>
