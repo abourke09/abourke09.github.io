@@ -46,8 +46,49 @@
 									<p>A useful layer for JavaScript</p>
 								</header>
 								<img src="/images/florian-klauer2.jpg" alt="" />
-								<p>blog content</p>
+								<p>What is TypeScript? Typescript is an open-source programming language
+								developed by Microsoft. It is considered a typed superset of JavaScript
+								that compiled into plain JavaScript. The best common-sense explanation I
+								found on TypeScript was that it is an extra layer on top of JavaScript.</p>
 
+								<p>Why would you use TypeScript? Of course you could just use JavaScript
+								alone, but TypeScript can help you catch errors quickly and early on,
+								allows you to auto import instead of writing each import statement by
+								hand, has great autocompletion, and can help your codebase grow in a
+								well-structured manner.</p>
+
+								<p>Critics would point out that using TypeScript requires writing more code
+								upfront, but the general consensus is that the extra effort pays
+								dividends later on when it becomes much easier to call functions, spot
+								errors, and auto import.</p>
+
+								<p>As with many things, TypeScript becomes easier to understand when you
+								see it in action. The YouTuber <a href="https://www.youtube.com/watch?v=D6or2gdrHRE"
+								alt="Bed Awad: Typescript vs Javascript video">Ben Awad</a> offered this great example:</p>
+
+								<code>
+									function add(a: number, b: number) {
+										return a+ b;
+									}
+
+									add(5, 6)
+									add(“5”, 6)
+								</code>
+
+								<p>The first time the function is called with <I>add(5, 6)</i>, everything
+								works perfectly. The second time however, we try to add a string of “5”
+								with an integer of 6. TypeScript will catch that error and inform you of
+								it because in the function definition you told it to expect both
+								arguments to be numbers. Pretty nifty! Obviously, it takes extra typing
+								to define each argument type in the function declaration. The magic
+								happens when you’re saved a headache while working with a big project
+								and happen to mess up an argument type.</p>
+
+								<p>TypeScript’s nifty autocomplete comes into play when creating components
+								too- a simple <i>Control + Space</i> will show you which properties are
+								needed for each component. In general, the value you get out of using TypeScript
+								increases as your project grows. The larger your codebaseis, the grateful you'll
+							 	be for TypeScript's features.</p>
 							</article>
 					</div>
 				</div>
