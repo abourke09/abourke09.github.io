@@ -43,10 +43,80 @@
 							<article id="content">
 								<header>
 									<h2>Data Structures: Stacks</h2>
-									<p>The first in, first out principle</p>
+									<p>The last in, first out principle</p>
 								</header>
 								<img src="/images/annie-spratt2.jpg" alt="" />
-								<p></p>
+								<p>Stacks- whether they’re a stack of books, pancakes, or plates, stacks
+								are pretty easy to visualize. In the world of data structures, a stack
+								is a linear collection of information for which the addition or deletion
+								of data happens on one end of the stack. It’s actually easiest to
+								consider a real-world example. </p>
+
+								<p>Take plates, for instance: if there is a stack of plates at the
+								beginning of a buffet line, you’re going to take the top plate off of
+								the stack to serve yourself with. You’re not going to try and squeeze
+								out a middle plate or the very bottom of the pile. Similarly, if the
+								kitchen staff sees the stack of plates running low, they’ll add fresh
+								new plates to the top of the stack. There’s no way they’re going to
+								shove the new plates in the middle of the pile.</p>
+
+								<p>By removing and adding new plates (data) to just the top of the
+								stack, we’re demonstrating the Last In, First Out (LIFO) principle. The
+								last plate (datapoint) to join the stack is also the first plate
+								(datapoint) to be removed from the stack. These two actions of adding
+								and removing datapoints are referred to as push (add) and pop (remove).
+								</p>
+
+								<p>On a macro level, we know that different data structures are created
+								so that computers can effectively make use of different types of data.
+								The stack data structure is useful for many different coding challenges,
+								but a particularly fun one is the balanced brackets challenge. The
+								challenge basically asks this: given a string of brackets, curly
+								brackets, and parentheses, determine whether or not the opening and
+								closing brackets/curly brackets/parentheses are balanced evenly. For
+								example, </p>
+
+								<code>
+									{ [ ( ) ] } balanced
+									{ [ ( ] ) } NOT balanced
+									{ ( ) { [ [ ( ( ) ) ] ] ( ) } } balanced
+								</code>
+
+								<p>Take a look at the comments included in the method below, it should
+								give you a sense of the logic needed as we look at each bracket in the
+								string. You’ll also notice just how useful a stack is for this problem.
+								Although it looks like a normal array, we’re treating it like a stack
+								data structure since we’re only pushing new data onto the top of the
+								stack and popping data off the top of the stack. It’s a great example of
+								the Last In, First Out (LIFO) principle. </p>
+
+								<code>
+									def isBalanced(s)
+									   #first, create a stack (empty array will work)
+									   stack = []
+
+									   #define what open and closed brackets
+									   open_brackets = ['{', '[', '(']
+									   closed_brackets = ['}', ']', ')']
+
+									   #since s is equal to a string of brackets, we need to split and iterate through it
+									   s.split('').each do |b|
+									       if open_brackets.include?(b)
+									           stack.push(b)
+									       else
+									#if the last item in the stack corresponds with the same index number in open_brackets as closed_brackets.index_of(b), then they match and the last item can be popped off the stack, otherwise b is added to the stack
+									           index = closed_brackets.index(b)
+									           if stack.last == open_brackets[index]
+									             stack.pop
+									           else
+									             stack.push(b)
+									           end
+									       end
+									   end
+									   #if the stack is empty at the end, that means it was balanced
+									   stack.empty? ? (return "YES") : (return "NO")
+									end
+								 </code>
 							</article>
 					</div>
 				</div>
