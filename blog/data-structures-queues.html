@@ -46,13 +46,40 @@
 									<p>The first in, first out principle</p>
 								</header>
 								<img src="/images/hal-gatewood2.jpg" alt="" />
-								<p></p>
+								<p>Last week’s blog post covered the stack data structure, so it seemed
+								like a fun next topic would be queues. Queues and stacks are very
+								similar, but understanding both helps to expand the resources available
+								to us when dealing with different types of data. On one hand, a stack
+								operates on the “first in, last out” principle like a stack of dinner
+								plates. On the other hand, a queue functions as a “first in, first out”
+								data structure like a line of people queuing up at the grocery store
+								checkout. Conveniently, the names themselves indicate how each data
+								structure operates.</p>
 
-								<code>
-									{ [ ( ) ] } balanced
-									{ [ ( ] ) } NOT balanced
-									{ ( ) { [ [ ( ( ) ) ] ] ( ) } } balanced
-								</code>
+								<p>A queue data structure can be described as a linear collection that
+								follows a particular order of removing items from the front of the
+								collection and adding items to the back of the collection. When we talk
+								about adding a data point to the end (tail) of the queue, we call that
+								enqueueing. Conversely, removing a data point from the front of the
+								queue is called dequeueing. If you’re working with Ruby, you can enqueue
+								by using the <i>.unshift(element)</i> method and dequeue by using
+								<i>.pop</i>.</p>
+
+								<p>Queues are particularly important when considering the Breadth-First
+								Search (BFS) algorithm. The BFS algorithm is used to search data
+								structures trees and is particularly useful when calculating the
+								shortest path through a maze. There are a number of different
+								programming challenges that deal with a maze in some way or another, so
+								it’s a great algorithm to be familiar with.</p>
+
+								<p>Just be sure not to confuse BFS
+								with the Depth-First Search- the key difference is that Breadth-First
+								Search examines all of the possible neighbor nodes on a data tree before
+								exploring the nodes on a deeper level of the tree. Depth-First does the
+								opposite (diving to deeper levels before examining nearby nodes at the
+								current level). If that sounds too complicated, here’s the key takeaway
+								point: BFS uses queues and DFS uses stacks.</p>
+
 
 							</article>
 					</div>
