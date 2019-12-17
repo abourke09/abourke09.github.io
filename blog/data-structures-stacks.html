@@ -76,11 +76,13 @@
 								closing brackets/curly brackets/parentheses are balanced evenly. For
 								example, </p>
 
-								<code>
-									{ [ ( ) ] } balanced
-									{ [ ( ] ) } NOT balanced
-									{ ( ) { [ [ ( ( ) ) ] ] ( ) } } balanced
+								<pre>
+									<code id="content">
+{ [ ( ) ] } balanced
+{ [ ( ] ) } NOT balanced
+{ ( ) { [ [ ( ( ) ) ] ] ( ) } } balanced
 								</code>
+								</pre>
 
 								<p>Take a look at the comments included in the method below, it should
 								give you a sense of the logic needed as we look at each bracket in the
@@ -90,33 +92,36 @@
 								stack and popping data off the top of the stack. It’s a great example of
 								the Last In, First Out (LIFO) principle. </p>
 
-								<code>
-									def isBalanced(s)
-									   #first, create a stack (empty array will work)
-									   stack = []
+								<pre>
+									<code id="content">
+def isBalanced(s)
+   #first, create a stack (empty array will work)
+   stack = []
 
-									   #define what open and closed brackets
-									   open_brackets = ['{', '[', '(']
-									   closed_brackets = ['}', ']', ')']
+   #define what open and closed brackets
+   open_brackets = ['{', '[', '(']
+   closed_brackets = ['}', ']', ')']
 
-									   #since s is equal to a string of brackets, we need to split and iterate through it
-									   s.split('').each do |b|
-									       if open_brackets.include?(b)
-									           stack.push(b)
-									       else
-									#if the last item in the stack corresponds with the same index number in open_brackets as closed_brackets.index_of(b), then they match and the last item can be popped off the stack, otherwise b is added to the stack
-									           index = closed_brackets.index(b)
-									           if stack.last == open_brackets[index]
-									             stack.pop
-									           else
-									             stack.push(b)
-									           end
-									       end
-									   end
-									   #if the stack is empty at the end, that means it was balanced
-									   stack.empty? ? (return "YES") : (return "NO")
-									end
-								 </code>
+   #since s is equal to a string of brackets, we need to split and iterate through it
+   s.split('').each do |b|
+       if open_brackets.include?(b)
+           stack.push(b)
+       else
+			 #if the last item in the stack corresponds with the same index number in open_brackets as closed_brackets.index_of(b), then they match and the last item can be popped off the stack, otherwise b is added to the stack
+
+			     index = closed_brackets.index(b)
+           if stack.last == open_brackets[index]
+             stack.pop
+           else
+             stack.push(b)
+           end
+       end
+   end
+   #if the stack is empty at the end, that means it was balanced
+   stack.empty? ? (return "YES") : (return "NO")
+end
+								</code>
+							</pre>
 							</article>
 					</div>
 				</div>

@@ -56,12 +56,14 @@
 								the first step was to make sure I could access the appropriate data from JSON. These were a few of the
 								most important routes for my app:</p>
 
-								<ul>
-									<li>'/movies.json'</li>
-									<li>'/movies/:id.json'</li>
-									<li>'/customers/:id.json'</li>
-									<li>'/customers/:id/rentals.json'</li>
-								</ul>
+								<pre>
+									<code id="content">
+'/movies.json'
+'/movies/:id.json'
+'/customers/:id.json'
+'/customers/:id/rentals.json'
+									</code>
+								</pre>
 
 								<p>Once I saw that I could successfully access each of those JSON routes, I was able to outline an AJAX
 								‘get’ request for each of them. In the success function of the AJAX request, I could use the ‘response’
@@ -85,12 +87,14 @@
 								listenFornavClick(). Otherwise, there would be no way to hijack the nav clicks and none of my JS would
 								be able to run.</p>
 
-									<pre><code>
-										$(function (){
-											currentUser()
-											listenForNavClick()
-										})
-								</code></pre>
+								<pre>
+									<code id="content">
+$(function (){
+	currentUser()
+	listenForNavClick()
+})
+									</code>
+								</pre>
 
 								<p>At this point, I’ve described how my project uses document.ready, event listeners, AMS JSON data, and
 								AJAX requests to pluck information from my database and make it available in my Javacsript files. In

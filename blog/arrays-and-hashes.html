@@ -62,17 +62,19 @@
 								knowing precisely where it is in the hash. As a bonus, it would give you
 								even further information about that pizza.</p>
 
-								<code>
-								junk_food_array = [“popcorn”, “pizza”, “cake”]
-								junk_food_array[1]
-								#Output:
-								#pizza
+								<pre>
+									<code id="content">
+junk_food_array = [“popcorn”, “pizza”, “cake”]
+junk_food_array[1]
+#Output:
+#pizza
 
-								junk_food_hash = { popcorn: “snack”, pizza: “dinner”, cake: ““dessert””}
-								junk_food_hash[:pizza]
-								#Output:
-								#dessert
-								</code>
+junk_food_hash = { popcorn: “snack”, pizza: “dinner”, cake: ““dessert””}
+junk_food_hash[:pizza]
+#Output:
+#dessert
+									</code>
+								</pre>
 
 								<p>Of course, both hashes and arrays have unique qualities that make them a
 								better or worse choice in any given situation. However, it was only
@@ -92,11 +94,13 @@
 								way to know the index value of certain food item, we wouldn't even be sure if
 								it was there at all. We would have to use the .find enumerable.</p>
 
-								<code>
-								junk_food_array.find {|i| i == "pizza"}
-								#Output:
-								#pizza
-							</code>
+								<pre>
+									<code id="content">
+junk_food_array.find {|i| i == "pizza"}
+#Output:
+#pizza
+									</code>
+								</pre>
 
 								<p>The .find enumerable has to go through each item in the array before it
 								reaches the end or comes across a matching "pizza" entry. Meanwhile, because

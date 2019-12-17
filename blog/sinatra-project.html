@@ -82,12 +82,15 @@
 									usernames in the database. Fortunately, I was able to add some simple validations to the Resident
 									class in the model folder (code below).</p>
 
-								<pre>
-									<code>validates :username,  uniqueness: true</code>
-									<code>validates :username,  presence: true</code>
-									<code>validates :name,  presence: true</code>
-									<code>validates :building_id,  presence: true</code>
-									<code>validates :apt_number,  presence: true</code>
+
+									<pre>
+										<code id="content">
+validates :username,  uniqueness: true
+validates :username,  presence: true
+validates :name,  presence: true
+validates :building_id,  presence: true
+validates :apt_number,  presence: true
+									</code>
 								</pre>
 
 								<p>On the login page, the user’s password would also need to be authenticated somehow. First,

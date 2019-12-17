@@ -29,11 +29,31 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
+pre {
+		font-family: "Courier 10 Pitch", Courier, monospace;
+		font-size: 95%;
+		line-height: 140%;
+		white-space: pre;
+		white-space: pre-wrap;
+		white-space: -moz-pre-wrap;
+		white-space: -o-pre-wrap;
+}
+
 code {
-	background: #f4f4f4;
-  display: block;
-	white-space: pre-line;
-	line-height: 1.0;
+		font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+		font-size: 95%;
+		line-height: 140%;
+		white-space: pre;
+		white-space: pre-wrap;
+		white-space: -moz-pre-wrap;
+		white-space: -o-pre-wrap;
+		background: #f4f8f9;
+}
+
+#content code {
+		display: block;
+		padding: 0.5em 1em;
+		border: 1px solid #bebab0;
 }
 
 body {
